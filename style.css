@@ -301,6 +301,7 @@ body {
 #about {
   position: relative;
   bottom: -60px;
+  font-family: "Raleway", sans-serif;
 }
 
 #about #aboutDiv h1 {
