@@ -81,6 +81,23 @@ const listCreator = (expenseName, expenseValue) => {
   sublistContent.appendChild(deleteButton);
   document.getElementById("list").appendChild(sublistContent);
 };
+let xValues, yValues;
+
+if (localStorage.getItem("xValues") == null) {
+  xValues = [];
+  yValues = [];
+  // Save a list to localStorage
+  localStorage.setItem("xValues", JSON.stringify(xValues));
+  localStorage.setItem("yValues", JSON.stringify(yValues));
+  // Retrieve the list from localStorage
+  let xValStored = localStorage.getItem("xValues");
+  let xValParsed = JSON.parse(xValStored);
+  let yValStored = localStorage.getItem("yValues");
+  let yValParsed = JSON.parse(yValStored);
+  console.log(xValParsed);
+  console.log(yValParsed);
+}
+
 //Function To Add Expenses
 checkAmountButton.addEventListener("click", () => {
   //empty checks
@@ -102,6 +119,17 @@ checkAmountButton.addEventListener("click", () => {
   listCreator(productTitle.value, userAmount.value);
   xValues.push(productTitle.value);
   yValues.push(userAmount.value);
+  // Save a list to localStorage
+  localStorage.setItem("xValues", JSON.stringify(xValues));
+  localStorage.setItem("yValues", JSON.stringify(yValues));
+  // Retrieve the list from localStorage
+  let xValStored = localStorage.getItem("xValues");
+  let xValParsed = JSON.parse(xValStored);
+  let yValStored = localStorage.getItem("yValues");
+  let yValParsed = JSON.parse(yValStored);
+  console.log(xValParsed);
+  console.log(yValParsed);
+
   myChart.update();
   //Empty inputs
   productTitle.value = "";
@@ -109,9 +137,8 @@ checkAmountButton.addEventListener("click", () => {
 });
 
 // Display on pi chart
-
-var xValues = [];
-var yValues = [];
+xValues = [];
+yValues = [];
 var barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9", "#1e7145"];
 
 let myChart = new Chart("myChart", {
@@ -132,24 +159,3 @@ let myChart = new Chart("myChart", {
     },
   },
 });
-
-// const data = {
-//   labels: ["america", "japan", "mexico"],
-//   datasets: [
-//     {
-//       label: "My First Dataset",
-//       data: [22, 11, 30],
-//       backgroundColor: [
-//         "rgb(255, 99, 132)",
-//         "rgb(54, 162, 235)",
-//         "rgb(255, 205, 86)",
-//       ],
-//       hoverOffset: 4,
-//     },
-//   ],
-// };
-
-// const config = {
-//   type: "pie",
-//   data: data,
-// };

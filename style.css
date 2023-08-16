@@ -63,6 +63,7 @@ body {
   font-size: 20px;
   position: relative;
   top: 10px;
+  padding: 0 2%;
 }
 
 #home .page-text {
@@ -295,4 +296,34 @@ body {
 
 #myChart {
   margin-left: 500px;
+}
+
+#about {
+  position: relative;
+  bottom: -60px;
+}
+
+#about #aboutDiv h1 {
+  color: transparent;
+}
+
+#aboutDiv h2 {
+  font-size: 45px;
+  display: block;
+  justify-content: center;
+  text-align: center;
+}
+
+#aboutDiv p {
+  font-size: 25px;
+  padding: 0 200px;
+}
+
+#creators {
+  font-size: 20px;
+  position: relative;
+  top: 30px;
+  display: block;
+  justify-content: center;
+  text-align: center;
 }
